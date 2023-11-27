@@ -30,14 +30,14 @@
 -->
 
   <%= form_with model: @user do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username%>
+    <%= f.label :username, "Your Username Here:" %><br>
+    <%= f.text_field :username, placeholder: "username"%><br><br>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, placeholder: "example@email.com" %><br><br>
 
-    <%= f.label :password %>
-    <%= f.password_field :password%>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, placeholder: "password"%><br><br>
 
     <%= f.submit %>
   <% end %>
