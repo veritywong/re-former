@@ -1,6 +1,7 @@
 <div class="main-container">
   <h1>My form</h1>
-  <form action="/users" method="post" accept-charset="UTF-8">
+<!--
+    <form action="/users" method="post" accept-charset="UTF-8">
     <input name="authenticity_token" type="hidden" value="WUaJBOpLhFo3Mt2vlEmPQ93zMv53sDk6WFzZ2YJJQ0M="/>
     <label for="username">Username</label><br>
     <input type="text" name="user[username]"/><br><br>
@@ -10,4 +11,22 @@
     <input type="password" name="user[password]"/><br><br>
 
     <input type="submit" value="Submit"/>
+  </form>
+-->
+
+
+<%= form_tag("/users", method: "post") do %>
+  <%= label_tag "user[username]", "Username" %>
+  <%= text_field_tag "user[username]"%>
+
+  <%= label_tag "user[email]", "Email" %>
+  <%= text_field_tag "user[email]"%>
+
+  <%= label_tag "user[password]", "Password" %>
+  <%= text_field_tag "user[password]"%>
+
+  <%= submit_tag("Submit") %>
+<% end %>
+
+
 </div>
