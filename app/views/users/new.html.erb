@@ -15,17 +15,17 @@
 -->
 
 
-<%= form_tag("/users", method: "post") do %>
-  <%= label_tag "user[username]", "Username" %>
-  <%= text_field_tag "user[username]"%>
+<%= form_with model: @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username%>
 
-  <%= label_tag "user[email]", "Email" %>
-  <%= text_field_tag "user[email]"%>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
 
-  <%= label_tag "user[password]", "Password" %>
-  <%= text_field_tag "user[password]"%>
+  <%= f.label :password %>
+  <%= f.password_field :password%>
 
-  <%= submit_tag("Submit") %>
+  <%= f.submit %>
 <% end %>
 
 
