@@ -29,7 +29,10 @@
 <% end %>
 -->
 
+
   <%= form_with model: @user do |f| %>
+    <%= render partial: 'shared/errors_messages', object: @user %>
+
     <%= f.label :username, "Your Username Here:" %><br>
     <%= f.text_field :username, placeholder: "username"%><br><br>
 
@@ -42,5 +45,9 @@
     <%= f.submit %>
   <% end %>
 
-
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
 </div>

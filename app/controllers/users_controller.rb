@@ -14,20 +14,18 @@ class UsersController < ApplicationController
 
     def edit
       @user = User.find(params[:id])
-      if @user
-        render :edit
-      else
-        render :new, status: :unprocessable_entity
-      end
     end
 
     def update
       @user = User.find(params[:id])
       if @user.update(user_params)
+        puts "DID SAVE :)!"
+        redirect_to new_user_path, notice: 'User was successfully updated.'
         # handle successful update, maybe redirect to show page or another page
-        redirect_to user_path(@user), notice: 'User was successfully updated.'
+        # redirect_to user_path(@user), notice: 'User was successfully updated.'
       else
         # handle validation errors, re-render the edit form
+        puts "DIDN't SAVE :("
         render :edit
       end
     end
